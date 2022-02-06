@@ -1,5 +1,4 @@
 @if $local_var != onload {
-
 	%circle_ico_style {
 		$w: 24px;
 		position: absolute;
@@ -56,7 +55,7 @@
 
 	%hover_show {
 		opacity: 0;
-		transition: opacity .3s ease;
+		transition: opacity 0.3s ease;
 	}
 
 	%hover_show_parent {
@@ -100,7 +99,6 @@
 		$index: 20;
 		$index2: 21;
 		@while $index > 0 {
-
 			&:nth-child(#{$index}) {
 				z-index: 10 + ($index2 - $index);
 			}
@@ -125,7 +123,7 @@
 		min-height: 100%;
 	}
 
-	%responsive_animation_wrap{
+	%responsive_animation_wrap {
 		position: absolute;
 		width: 10%;
 		height: 10vh;

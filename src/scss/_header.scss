@@ -125,6 +125,7 @@
 	}
 	.tags_header__label {
 		padding: 0 10px 0 10px;
+
 		&::after {
 			content: "";
 			display: inline-block;
@@ -135,11 +136,11 @@
 
 			border: solid $color_link_base;
 			border-width: 0 3px 3px 0;
-			border-radius: rem(2);
+			border-radius: 0 4px 0 4px;
 
 			transition: transform 0.3s ease 0s;
 			will-change: transform;
-			._active & {
+			.tags_open & {
 				transform: scale(-1, 1) rotate(-135deg) translate(0, -4px);
 			}
 		}
@@ -172,7 +173,7 @@
 		font-size: 0;
 		transition: max-height 0.3s ease 0s, font-size 0.3s ease 0s;
 		will-change: max-height, font-size;
-		._active & {
+		.tags_open & {
 			font-size: inherit;
 			max-height: 255px;
 			pointer-events: all;
@@ -182,7 +183,7 @@
 	.tags_header__link {
 		display: block;
 
-		padding: 5px 10px;
+		padding: 4px 10px;
 	}
 	.contacts_links__list {
 		gap: 10px 18px;

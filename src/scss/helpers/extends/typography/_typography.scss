@@ -15,5 +15,8 @@
 // offsets
 
 %title_offset {
-	margin-bottom: rem(41);
+	margin-bottom: rem(38);
+	@media screen and (max-width: $tablet) {
+		margin-bottom: 25px;
+	}
 }

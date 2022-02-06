@@ -1,34 +1,6 @@
-// ------------------- imports
-import $ from 'jquery';
-import { GLOBAL_VARS } from 'utils/constants';
-import { documentReady, pageLoad } from 'utils';
-import pageWidgetInit from './dev_vendors/dev_widget';
-// ------------------- imports###
+import { pageLoad } from 'utils';
 
-// ------------------  import components
-// ------------------  import components###
-
-window.jQuery = $;
-window.$ = $;
-
-const styles = ['color: #fff', 'background: #cf8e1f'].join(';');
-const message = 'Developed by Glivera-team https://glivera-team.com/';
-// eslint-disable-next-line no-console
-console.info('%c%s', styles, message);
-
-// -------------------  dev widget
-if (GLOBAL_VARS.projectDevStatus) {
-	pageWidgetInit();
-	console.log(process.env.NODE_ENV);
-}
-// -------------------  dev widget###
-
-// -------------------  global variables
-
-const readyFunc = () => {
-	console.log('ready');
-};
-
+// -------------------  Documents actions
 function documentActions() {
 	const header = document.querySelector('header.headerActions');
 
@@ -36,16 +8,27 @@ function documentActions() {
 		const targetElement = e.target;
 		// Tags
 		if (targetElement.classList.contains('tags_header__label') && window.innerWidth <= 991.98) {
-			header.classList.toggle('_active');
-		} else if (header.classList.contains('_active') && !targetElement.closest('.tags_header__list')) {
-			header.classList.remove('_active');
+			header.classList.toggle('tags_open');
+		} else if (header.classList.contains('tags_open') && !targetElement.closest('.tags_header__list')) {
+			header.classList.remove('tags_open');
+		}
+		// Lists
+		// Catch click on title
+		if (targetElement.classList.contains('links_aside__title') && window.innerWidth <= 991.98) {
+			// if list is already open - close it
+			if (targetElement.parentElement.classList.contains('list_open')) targetElement.parentElement.classList.remove('list_open');
+			// else if another list is open - close it and open current
+			else if (document.querySelector('.list_open')) {
+				document.querySelector('.list_open').classList.remove('list_open');
+				targetElement.parentElement.classList.add('list_open');
+				// if all lists closed - open current
+			} else targetElement.parentElement.classList.add('list_open');
+			// if target element NOT list and list is open - close it
+		} else if (document.querySelector('.list_open') && !targetElement.closest('.links_aside__list')) {
+			document.querySelector('.list_open').classList.remove('list_open');
 		}
 	});
 }
-
-documentReady(() => {
-	readyFunc();
-});
 
 pageLoad(() => {
 	documentActions();

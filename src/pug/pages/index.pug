@@ -4,4 +4,24 @@ block vars
 	- array = {body_class:'', layout_mod:'', sub_keywords:'', title_inner:'Index'}
 block content_block
 	section.section.demo_mod
-		
+		.section__container
+			.section__body.body_section
+				h1.body_section__title Recent posts
+				.body_section__posts
+						+post
+						+post
+				.body_section__footer
+							a(href="#").body_section__button.btn_base older posts
+			aside.section__aside.aside_section
+				form(action="#" method="method").aside_section__search.search_aside
+					.search_aside__wrap
+						input(name="form[]", type="text", autocomplete="off", placeholder="Search blog").search_aside__input.form_input__element
+						button(type="submit").search_aside__button
+				+links
+				a(href="#").aside_section__poster
+					img(src="images/poster.jpg", alt="poster")
+				+tags_cloud
+		.section__adapt
+			a(href="#").aside_section__poster
+				img(src="images/poster.jpg", alt="poster")
+			+tags_cloud
