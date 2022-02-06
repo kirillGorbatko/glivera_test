@@ -1,0 +1,190 @@
+//------------------------------------------------------------layout
+.header {
+	position: relative;
+
+	padding-top: rem(42);
+
+	@include z-index(header);
+
+	// .header__container
+	&__container {
+		font-weight: 500;
+		font-size: 14px;
+		text-transform: uppercase;
+
+		background-color: #f7f7f7;
+	}
+	// .header__body
+	&__body {
+		display: flex;
+		flex-wrap: wrap;
+
+		gap: rem(50);
+		padding: rem(23.2) rem(32) rem(21.2) rem(32);
+	}
+	// .header__tags
+	&__tags {
+		display: flex;
+		flex: 1 1 auto;
+
+		gap: rem(10) rem(42);
+	}
+	// .header__contacts
+	&__contacts {
+	}
+}
+
+.tags_header {
+	// .tags_header__label
+	&__label {
+		color: $color_text_base;
+		letter-spacing: 1.02px;
+		line-height: math(18, 14);
+
+		&::after {
+			content: ":";
+		}
+	}
+	// .tags_header__list
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+
+		gap: rem(10) rem(34.4);
+	}
+	// .tags_header__item
+	&__item {
+	}
+	// .tags_header__link
+	&__link {
+		letter-spacing: 0.8px;
+		line-height: div(18, 14);
+
+		@media (any-hover: hover) {
+			position: relative;
+			&::before {
+				content: "";
+				position: absolute;
+				bottom: -2px;
+				left: 50%;
+				transform: translate(-50%, 0);
+
+				width: 0;
+				height: 2px;
+
+				background-color: $color_link_base;
+
+				transition: width 0.3s ease 0s;
+				will-change: width;
+			}
+			&:hover {
+				&::before {
+					width: 100%;
+				}
+			}
+		}
+	}
+}
+
+.contacts_links {
+	// .contacts_links__list
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+
+		gap: rem(36.8);
+	}
+	// .contacts_links__item
+	&__item {
+	}
+	// .contacts_links__link
+	&__link {
+		color: $color_text_base;
+		letter-spacing: 1.02px;
+		line-height: div(18, 14);
+
+		@media (any-hover: hover) {
+			transition: color 0.3s ease 0s;
+			will-change: color;
+			&:hover {
+				color: $color_link_base;
+			}
+		}
+	}
+}
+//========================================================================================================================================================
+@media screen and (max-width: $tablet) {
+	.header__container {
+		font-size: 16px;
+	}
+	.header__body {
+		padding: 10px;
+	}
+	.tags_header {
+		position: relative;
+	}
+	.tags_header__label {
+		padding: 0 10px 0 10px;
+		&::after {
+			content: "";
+			display: inline-block;
+			transform: rotate(45deg) translate(0, -3px);
+
+			padding: 4px;
+			margin-left: 5px;
+
+			border: solid $color_link_base;
+			border-width: 0 3px 3px 0;
+			border-radius: rem(2);
+
+			transition: transform 0.3s ease 0s;
+			will-change: transform;
+			._active & {
+				transform: scale(-1, 1) rotate(-135deg) translate(0, -4px);
+			}
+		}
+	}
+	.tags_header__list {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		transform: translate(0, calc(100% + 3px));
+		z-index: 2;
+
+		flex-direction: column;
+		flex-wrap: nowrap;
+		max-width: 320px;
+
+		overflow: auto;
+		background-color: #f0eaea;
+		border-radius: 0 0 7px 7px;
+		box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+		li {
+			&:not(:last-child) {
+				border-bottom: 1px solid #3236428c;
+			}
+		}
+
+		pointer-events: none;
+		max-height: 0;
+		visibility: hidden;
+		font-size: 0;
+		transition: max-height 0.3s ease 0s, font-size 0.3s ease 0s;
+		will-change: max-height, font-size;
+		._active & {
+			font-size: inherit;
+			max-height: 255px;
+			pointer-events: all;
+			visibility: visible;
+		}
+	}
+	.tags_header__link {
+		display: block;
+
+		padding: 5px 10px;
+	}
+	.contacts_links__list {
+		gap: 10px 18px;
+	}
+}

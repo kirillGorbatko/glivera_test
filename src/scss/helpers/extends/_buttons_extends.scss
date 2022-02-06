@@ -1,0 +1,46 @@
+@mixin st_btn() {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+
+	text-align: center;
+	text-transform: uppercase;
+	white-space: nowrap;
+
+	cursor: pointer;
+
+	&:hover,
+	&:focus {
+		text-decoration: none;
+	}
+}
+
+//color extends
+%green_btn_1 {
+	color: $color_link_base;
+	font-weight: 500;
+	letter-spacing: 0.8px;
+	line-height: math(18, 14);
+
+	@include st_btn();
+	border: 1px solid #4cb649;
+
+	transition: background-color 0.3s ease, color 0.3s ease;
+	will-change: background-color, color;
+	&:hover {
+		background-color: darken($color_link_base, 20%);
+		color: #fff;
+	}
+}
+
+//size extends
+%btn_size_1 {
+	min-height: 40px;
+	min-width: 260px;
+	padding: 0 20px;
+
+	line-height: 4rem;
+	font-size: 1.6rem;
+
+	border-radius: 30px;
+}

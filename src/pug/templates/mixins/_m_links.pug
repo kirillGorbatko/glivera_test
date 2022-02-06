@@ -1,0 +1,9 @@
+mixin links
+	.aside_section__links.links_aside
+		each item in links
+			.links_aside__in
+				h3(class=`links_aside__title links_aside__title${item.iconClass}`) #{item.title}
+				ul.links_aside__list
+					each link in item.list
+						li.links_aside__item 
+							a(href="#").links_aside__link #{link}

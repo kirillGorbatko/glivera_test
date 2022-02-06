@@ -1,0 +1,16 @@
+mixin header
+	header.header.headerActions
+		.header__container 
+			.header__body 
+				.header__tags.tags_header
+					.tags_header__label tags
+					ul.tags_header__list 
+						each tag in headerTags 
+							li.tags_header__item 
+								a(href="#").tags_header__link #{tag}
+
+				.header__contacts_links.contacts_links
+					ul.contacts_links__list 
+						each link in headerLinks 
+							li.contacts_links__item 
+								a(href="#").contacts_links__link #{link}
