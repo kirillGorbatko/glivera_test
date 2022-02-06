@@ -420,6 +420,7 @@
 		justify-content: space-between;
 		flex-wrap: wrap;
 
+		padding: 0px 50px;
 		gap: 20px 35px;
 	}
 	.links_aside__in {
@@ -562,11 +563,14 @@
 }
 
 @media screen and (max-width: $mobileSmall) {
-	.search_asid {
+	.search_aside {
 		width: 100%;
 	}
 	.links_aside {
 		flex-direction: column;
-		width: 100%;
+	}
+	.links_aside__title {
+		min-width: 150px;
+		justify-content: space-between;
 	}
 }
