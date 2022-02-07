@@ -7,21 +7,40 @@ block content_block
 		.section__container
 			.section__body.body_section
 				h1.body_section__title Recent posts
-				.body_section__posts
-						+post
-						+post
+				ul.body_section__posts
+						+post('01', 'The Internet Cannot be Trusted – Beamsplitters, Backdoors, and Broken Promises', 'Derek Zimmer','JUL 25, 2018', ['Governments', 'Networking', 'Open Source', 'Privacy', 'Security'], 0)
+						+post('02', 'How to get cheaper flights using a VPN', 'Jayson','JUL 24, 2018', ['Guides'], 0)
+						+post('03', 'Net Neutrality was repealed, but the fight is far from over', 'Chris Miller','JUL 22, 2018', ['Governments', 'Net Neutrality', 'News'], 0)
+						+post('01', 'The Internet Cannot be Trusted – Beamsplitters, Backdoors, and Broken Promises', 'Derek Zimmer','JUL 25, 2018', ['Governments', 'Networking', 'Open Source', 'Privacy', 'Security'], 0)
+						+post('02', 'How to get cheaper flights using a VPN', 'Jayson','JUL 24, 2018', ['Guides'], 0)
+						+post('03', 'Net Neutrality was repealed, but the fight is far from over', 'Chris Miller','JUL 22, 2018', ['Governments', 'Net Neutrality', 'News'], 0)
 				.body_section__footer
-							a(href="#").body_section__button.btn_base older posts
+							a.body_section__button.btn_base(href="#") older posts
 			aside.section__aside.aside_section
 				form(action="#" method="get").aside_section__search.search_aside
 					.search_aside__wrap
 						input(name="form[]", type="text", autocomplete="off", placeholder="Search blog").search_aside__input.form_input__element
 						button(type="submit").search_aside__button
-				+links
-				a(href="#").aside_section__poster
+				.aside_section__links.links_aside
+					each item in links
+						.links_aside__in
+							h2(class=`links_aside__title links_aside__title${item.iconClass}`)= item.title
+							ul.links_aside__list
+								each link in item.list
+									li.links_aside__item 
+										a.links_aside__link(href="#")= link
+				a.aside_section__poster(href="#")
 					img(src="images/poster.jpg", alt="poster")
-				+tags_cloud
+				.aside_section__wrap
+					h2.aside_section__title Tag cloud
+					.aside_section__tags
+						each tag in tags
+							a(class=`aside_section__tag aside_section__tag${tag.size}`, href="#")= tag.tag
 		.section__adapt
-			a(href="#").aside_section__poster
+			a.aside_section__poster(href="#")
 				img(src="images/poster.jpg", alt="poster")
-			+tags_cloud
+			.aside_section__wrap
+				h2.aside_section__title Tag cloud
+				.aside_section__tags
+					each tag in tags
+						a(class=`aside_section__tag aside_section__tag${tag.size}`, href="#")= tag.tag

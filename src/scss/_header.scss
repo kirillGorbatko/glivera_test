@@ -2,7 +2,7 @@
 .header {
 	position: relative;
 
-	padding-top: rem(42);
+	padding-top: 4.8rem;
 
 	@include z-index(header);
 
@@ -19,15 +19,18 @@
 		display: flex;
 		flex-wrap: wrap;
 
-		gap: rem(50);
-		padding: rem(23.2) rem(32) rem(21.2) rem(32);
+		gap: 5.72rem;
+		padding-top: 2.65rem;
+		padding-bottom: 2.42rem;
+		padding-right: 3.66rem;
+		padding-left: 3.66rem;
 	}
 	// .header__tags
 	&__tags {
 		display: flex;
 		flex: 1 1 auto;
 
-		gap: rem(10) rem(42);
+		gap: 1.14rem 5.72rem;
 	}
 	// .header__contacts
 	&__contacts {
@@ -50,7 +53,7 @@
 		display: flex;
 		flex-wrap: wrap;
 
-		gap: rem(10) rem(34.4);
+		gap: 1.14rem 3.94rem;
 	}
 	// .tags_header__item
 	&__item {
@@ -92,7 +95,7 @@
 		display: flex;
 		flex-wrap: wrap;
 
-		gap: rem(36.8);
+		gap: 4.2rem;
 	}
 	// .contacts_links__item
 	&__item {
@@ -100,7 +103,7 @@
 	// .contacts_links__link
 	&__link {
 		color: $color_text_base;
-		letter-spacing: 1.02px;
+		letter-spacing: 0.12rem;
 		line-height: math(18, 14);
 
 		@media (any-hover: hover) {
@@ -123,7 +126,7 @@
 		position: relative;
 	}
 	.tags_header__label {
-		padding: 0 10px 0 10px;
+		padding: 0 10px;
 
 		&::after {
 			content: "";
@@ -167,14 +170,12 @@
 		}
 
 		pointer-events: none;
-		max-height: 0;
 		visibility: hidden;
-		font-size: 0;
-		transition: max-height 0.3s ease 0s, font-size 0.3s ease 0s;
-		will-change: max-height, font-size;
+		opacity: 0;
+		transition: opacity 0.3s ease 0s;
+		will-change: opacity;
 		.tags_open & {
-			font-size: inherit;
-			max-height: 255px;
+			opacity: 1;
 			pointer-events: all;
 			visibility: visible;
 		}

@@ -1,65 +1,28 @@
-$icon_font_name: "iconfont";
-@font-face {
-	font-family: $icon_font_name;
-	src: url("../fonts/icons/iconfont.eot");
-	src: url("../fonts/icons/iconfont.eot?#iefix") format("eot"), url("../fonts/icons/iconfont.woff") format("woff"),
-		url("../fonts/icons/iconfont.ttf") format("truetype"), url("../fonts/icons/iconfont.svg#iconfont") format("svg");
-}
-
-%icon-check,
-%icon-search,
-%icon-bell,
-%icon-net,
-%last_selector {
-	&:before {
-		font-family: $icon_font_name;
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-		font-style: normal;
-		font-variant: normal;
-		font-weight: 400;
-		// speak: none; // only necessary if not using the private unicode range (firstGlyph option)
-		text-decoration: none;
-		text-transform: none;
-	}
-}
-
-%icons_before_after {
-	&:before,
-	&:after {
-		font-family: $icon_font_name;
-		speak: none;
-		font-style: normal;
-		font-weight: 400;
-		font-variant: normal;
-		text-transform: none;
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-	}
-}
-
-%icon-comment {
-	&:after {
-		font-family: $icon_font_name;
-		speak: none;
-		font-style: normal;
-		font-weight: 400;
-		font-variant: normal;
-		text-transform: none;
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-	}
-}
-
 %icon-search:before {
-	content: "\e900";
+	content: "";
+	display: block;
+	background: url("../images/icons/sprite_icons/css_sprites.png") no-repeat -10px -71px;
+	width: 20px;
+	height: 20px;
 }
 %icon-bell:before {
-	content: "\e901";
+	content: "";
+	display: block;
+	background: url("../images/icons/sprite_icons/css_sprites.png") no-repeat -72px -10px;
+	width: 39px;
+	height: 40px;
 }
 %icon-net:before {
-	content: "\e902";
+	content: "";
+	display: block;
+	background: url("../images/icons/sprite_icons/css_sprites.png") no-repeat -10px -10px;
+	width: 42px;
+	height: 41px;
 }
 %icon-comment:after {
-	content: "\e903";
+	content: "";
+	display: block;
+	background: url("../images/icons/sprite_icons/css_sprites.png") no-repeat -51px -71px;
+	width: 11px;
+	height: 12px;
 }

@@ -7,10 +7,10 @@ mixin header
 					ul.tags_header__list 
 						each tag in headerTags 
 							li.tags_header__item 
-								a(href="#").tags_header__link #{tag}
+								a.tags_header__link(href="#")= tag
 
 				.header__contacts_links.contacts_links
 					ul.contacts_links__list 
 						each link in headerLinks 
 							li.contacts_links__item 
-								a(href="#").contacts_links__link #{link}
+								a.contacts_links__link(href="#")= link

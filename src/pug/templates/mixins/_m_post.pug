@@ -1,15 +1,14 @@
-mixin post
-   each post in posts
-      article.body_section__post.post_section
-         a(href="#").post_section__image
-            img(src=`images/${post.id}.jpg`, alt=`post ${post.id}`)
-         .post_section__info
-            h3.post_section__title
-               a(href="#").post_section__link #{post.title}
-            .post_section__user
-               .post_section__name #{post.name}
-               .post_section__date #{post.date}
-            .post_section__tags 
-               each tag in post.tags
-                  a(href="#").post_section__tag #{tag}
-            .post_section__comments #{post.comments}
+mixin post(post_id, post_title, post_name, post_date, post_tags, post_comments)
+	li.body_section__post.post_section
+		a.post_section__image(href="#")
+			img(src=`images/${post_id}.jpg`, alt=`post ${post_id}`)
+		.post_section__info
+			h3.post_section__title
+				a.post_section__link(href="#")= post_title
+			.post_section__user
+				.post_section__name= post_name
+				.post_section__date= post_date
+			.post_section__tags 
+				each tag in post_tags
+					a.post_section__tag(href="#")= tag
+			.post_section__comments= post_comments
