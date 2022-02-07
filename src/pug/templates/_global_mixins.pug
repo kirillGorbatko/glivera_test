@@ -1,30 +1,30 @@
 mixin head(array)
 	meta(charset='UTF-8')
-	title!= (environment === 'development') ? `${environment} | ${array.title_inner}` : array.title_inner
+	title= "Test"
 	meta(name="viewport", content="width=device-width")
 	meta(name="SKYPE_TOOLBAR", content="SKYPE_TOOLBAR_PARSER_COMPATIBLE")
 	meta(name="apple-mobile-web-app-capable", content="yes")
 	meta(name="format-detection", content="telephone=no")
 
-	link(rel='shortcut icon' href=`${assetsImage}favicon.ico`)
+	link(href=`${assetsImage}favicon.ico` rel='shortcut icon')
 
 	if environment === 'production'
-		link(rel='icon' sizes='16x16 32x32 64x64' href=`${assetsImage}favicon.ico`)
-		link(rel='icon' type='image/png' sizes='196x196' href='/favicon-192.png')
-		link(rel='icon' type='image/png' sizes='160x160' href='/favicon-160.png')
-		link(rel='icon' type='image/png' sizes='96x96' href='/favicon-96.png')
-		link(rel='icon' type='image/png' sizes='64x64' href='/favicon-64.png')
-		link(rel='icon' type='image/png' sizes='32x32' href='/favicon-32.png')
-		link(rel='icon' type='image/png' sizes='16x16' href='/favicon-16.png')
-		link(rel='apple-touch-icon' href='/favicon-57.png')
-		link(rel='apple-touch-icon' sizes='114x114' href='/favicon-114.png')
-		link(rel='apple-touch-icon' sizes='72x72' href='/favicon-72.png')
-		link(rel='apple-touch-icon' sizes='144x144' href='/favicon-144.png')
-		link(rel='apple-touch-icon' sizes='60x60' href='/favicon-60.png')
-		link(rel='apple-touch-icon' sizes='120x120' href='/favicon-120.png')
-		link(rel='apple-touch-icon' sizes='76x76' href='/favicon-76.png')
-		link(rel='apple-touch-icon' sizes='152x152' href='/favicon-152.png')
-		link(rel='apple-touch-icon' sizes='180x180' href='/favicon-180.png')
+		link(href=`${assetsImage}favicon.ico` rel='icon' sizes='16x16 32x32 64x64')
+		link(type='image/png' href='/favicon-192.png' rel='icon' sizes='196x196')
+		link(type='image/png' href='/favicon-160.png' rel='icon' sizes='160x160')
+		link(type='image/png' href='/favicon-96.png' rel='icon' sizes='96x96')
+		link(type='image/png' href='/favicon-64.png' rel='icon' sizes='64x64')
+		link(type='image/png' href='/favicon-32.png' rel='icon' sizes='32x32')
+		link(type='image/png' href='/favicon-16.png' rel='icon' sizes='16x16')
+		link(href='/favicon-57.png' rel='apple-touch-icon')
+		link(href='/favicon-114.png' rel='apple-touch-icon' sizes='114x114')
+		link(href='/favicon-72.png' rel='apple-touch-icon' sizes='72x72')
+		link(href='/favicon-144.png' rel='apple-touch-icon' sizes='144x144')
+		link(href='/favicon-60.png' rel='apple-touch-icon' sizes='60x60')
+		link(href='/favicon-120.png' rel='apple-touch-icon' sizes='120x120')
+		link(href='/favicon-76.png' rel='apple-touch-icon' sizes='76x76')
+		link(href='/favicon-152.png' rel='apple-touch-icon' sizes='152x152')
+		link(href='/favicon-180.png' rel='apple-touch-icon' sizes='180x180')
 		meta(name='msapplication-TileColor' content='#FFFFFF')
 		meta(name='msapplication-TileImage' content='/favicon-144.png')
 		meta(name='msapplication-config' content='/browserconfig.xml')
@@ -36,27 +36,27 @@ mixin form_input(data)
 	- elClass = data.class || 'form_input__element'
 	.form_input(class = data.mod)
 		if data.label
-			label(for=data.id class= labelClass)= data.label
+			label(class=labelClass for=data.id)= data.label
 		.form_input__field
-			input(type=data.type class = elClass placeholder=data.placeholder value=data.value name=data.name required=data.required)
+			input(class=elClass name=data.name type=data.type placeholder=data.placeholder value=data.value required=data.required)
 
 mixin form_textarea(data)
 	- labelClass = data.label_class || 'form_textarea__label'
 	- elClass = data.class || 'form_textarea__element'
 	.form_textarea(class = data.mod)
 		if data.label
-			label(for=data.id class= labelClass)= data.label
+			label(class=labelClass for=data.id)= data.label
 		.form_textarea__field
-			textarea(class = elClass placeholder=data.placeholder value=data.value name=data.name required=data.required)
+			textarea(class=elClass name=data.name placeholder=data.placeholder value=data.value required=data.required)
 
 mixin form_select(data)
 	- labelClass = data.label_class || 'form_select__label'
 	- elClass = data.class || 'form_select__element'
 	.form_select(class = data.mod)
 		if data.label
-			label(for=data.id class= labelClass)= data.label
+			label(class=labelClass for=data.id)= data.label
 		.form_select__field
-			select(class = elClass placeholder=data.placeholder name=data.name required=data.required)
+			select(class=elClass name=data.name placeholder=data.placeholder required=data.required)
 				each item in data.options
 					option(value=item)= item
 
@@ -65,7 +65,7 @@ mixin form_checkbox(data)
 	- elClass = data.class || 'form_checkbox__element'
 	.form_checkbox(class = data.mod)
 		label.form_checkbox__block
-			input(class=elClass type="checkbox" name=data.name checked=data.checked || false)
+			input(class=elClass name=data.name type="checkbox" checked=data.checked || false)
 			span(class = labelClass)!= data.label
 
 mixin form_radio(data)
@@ -73,7 +73,7 @@ mixin form_radio(data)
 	- elClass = data.class || 'form_radio__element'
 	.form_radio(class = data.mod)
 		label.form_radio__block
-			input(class=elClass type="radio" name=data.name checked=data.checked || false)
+			input(class=elClass name=data.name type="radio" checked=data.checked || false)
 			span(class = labelClass)!= data.label
 //- form element v3###
 
@@ -110,7 +110,7 @@ mixin menu(menuArray)
 		each item in menuArray.items
 			- url = item.url || '#'
 			li(class= `${menuArray.gl_class}__item ${item.active ? `${menuArray.gl_class}__item--active_mod` : ''} ${gl_mod ? `${menuArray.gl_class}__item--${gl_mod}` : ''}`)
-				a(href= url class= `${menuArray.gl_class}__link ${gl_mod ? `${menuArray.gl_class}__link--${gl_mod}` : ''}`)= item.title
+				a(class=`${menuArray.gl_class}__link ${gl_mod ? `${menuArray.gl_class}__link--${gl_mod}` : ''}` href=url)= item.title
 
 //- works
 mixin social(socialArray)
@@ -119,7 +119,7 @@ mixin social(socialArray)
 		each item in socialArray.items
 			- mod_link = item.mod_link || ''
 			li.social_item
-				a.social_link(href="#" class= `${mod_link}`)
+				a.social_link(class=`${mod_link}` href="#")
 					+icon(item.name_icon, item.mod_icon)
 
 //- works
@@ -135,24 +135,24 @@ mixin pagination(config)
 		ul.pag_list(class= config.mod)
 			if config.arrows
 				li.pag_item.prev_mod(class= config.mod)
-					a.pag_link.prev_mod(href='#' class= config.mod)
+					a.pag_link.prev_mod(class=config.mod href='#')
 			- i = 1;
 			while i <= config.pages
 				if i == config.pages - 1
 					li.pag_item(class= config.mod)
 						a.pag_link.dots_mod(class= config.mod) &hellip;
 					li.pag_item(class= config.mod)
-						a.pag_link(href='#' title= i class= config.mod)= i
+						a.pag_link(class=config.mod href='#' title=i)= i
 				else if i == config.active
 					li.pag_item(class= config.mod)
-						a.pag_link.active_mod(title= i class= config.mod)= i
+						a.pag_link.active_mod(class=config.mod title=i)= i
 				else
 					li.pag_item(class= config.mod)
-						a.pag_link(href='#' title= i class= config.mod)= i
+						a.pag_link(class=config.mod href='#' title=i)= i
 				-i++
 			if config.arrows
 				li.pag_item.next_mod
-					a.pag_link.next_mod(href='#' class= config.mod)
+					a.pag_link.next_mod(class=config.mod href='#')
 
 //- picture
 mixin picture(data)
@@ -167,15 +167,15 @@ mixin picture(data)
 		each imgType in mediaArray
 			if media
 				if imgType === 'webp' && environment === 'production'
-					source(media=`(min-width: ${media}px)` srcset=`${assetsImage}${data.img}.${type}.${imgType}${is2x ? `, ${data.img}@2x.${type}.${imgType} 2x` : ''}` type=`image/${imgType}`)
-					source(media=`(max-width: ${media - 1}px)` srcset=`${assetsImage}${data.img_mob}.${type}.${imgType}${is2x ? `, ${data.img_mob}@2x.${type}.${imgType} 2x` : ''}` type=`image/${imgType}`)
+					source(type=`image/${imgType}`, media=`(min-width: ${media}px)`, srcset=`${assetsImage}${data.img}.${type}.${imgType}${is2x ? `, ${data.img}@2x.${type}.${imgType} 2x` : ''}`)
+					source(type=`image/${imgType}`, media=`(max-width: ${media - 1}px)`, srcset=`${assetsImage}${data.img_mob}.${type}.${imgType}${is2x ? `, ${data.img_mob}@2x.${type}.${imgType} 2x` : ''}`)
 				else
-					source(media=`(min-width: ${media}px)` srcset=`${assetsImage}${data.img}.${imgType}${is2x ? `, ${data.img}@2x.${imgType} 2x` : ''}` type=`image/${imgType}`)
-					source(media=`(max-width: ${media - 1}px)` srcset=`${assetsImage}${data.img_mob}.${imgType}${is2x ? `${data.img_mob}@2x.${imgType} 2x` : ''}` type=`image/${imgType}`)
+					source(type=`image/${imgType}`, media=`(min-width: ${media}px)`, srcset=`${assetsImage}${data.img}.${imgType}${is2x ? `, ${data.img}@2x.${imgType} 2x` : ''}`)
+					source(type=`image/${imgType}` media=`(max-width: ${media - 1}px)` srcset=`${assetsImage}${data.img_mob}.${imgType}${is2x ? `${data.img_mob}@2x.${imgType} 2x` : ''}`)
 			else
 				if imgType === 'webp' && environment === 'production'
-					source(srcset=`${assetsImage}${data.img}.${type}.${imgType}${is2x ? `, ${data.img}@2x.${type}.${imgType} 2x` : ''}` type=`image/${imgType}`)
+					source(type=`image/${imgType}` srcset=`${assetsImage}${data.img}.${type}.${imgType}${is2x ? `, ${data.img}@2x.${type}.${imgType} 2x` : ''}`)
 				else
-					source(srcset=`${assetsImage}${data.img}.${imgType}${is2x ? `, ${data.img}@2x.${imgType} 2x` : ''}` type=`image/${imgType}`)
-		img(class= customClass src=`${assetsImage}${data.img}.${type}` alt="")
+					source(type=`image/${imgType}` srcset=`${assetsImage}${data.img}.${imgType}${is2x ? `, ${data.img}@2x.${imgType} 2x` : ''}`)
+		img(class=customClass src=`${assetsImage}${data.img}.${type}` alt="")
 

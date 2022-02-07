@@ -2,7 +2,7 @@
 	font-weight: 300;
 	color: $color_text_additional;
 	font-size: 32px;
-	line-height: rem(44);
+	line-height: math(44, 32);
 }
 
 %h3 {

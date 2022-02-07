@@ -58,7 +58,7 @@
 	// .tags_header__link
 	&__link {
 		letter-spacing: 0.8px;
-		line-height: div(18, 14);
+		line-height: math(18, 14);
 
 		@media (any-hover: hover) {
 			position: relative;
@@ -101,11 +101,10 @@
 	&__link {
 		color: $color_text_base;
 		letter-spacing: 1.02px;
-		line-height: div(18, 14);
+		line-height: math(18, 14);
 
 		@media (any-hover: hover) {
 			transition: color 0.3s ease 0s;
-			will-change: color;
 			&:hover {
 				color: $color_link_base;
 			}

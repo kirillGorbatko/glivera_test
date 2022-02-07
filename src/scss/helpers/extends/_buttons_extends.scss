@@ -26,7 +26,7 @@
 	border: 1px solid #4cb649;
 
 	transition: background-color 0.3s ease, color 0.3s ease;
-	will-change: background-color, color;
+	will-change: background-color;
 	&:hover {
 		background-color: darken($color_link_base, 20%);
 		color: #fff;
