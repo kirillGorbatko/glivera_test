@@ -370,8 +370,8 @@
 }
 //========================================================================================================================================================
 @media screen and (max-width: 1200px) {
-	.section__container {
-		@media screen and (min-width: $tablet) {
+	@media screen and (min-width: $tablet) {
+		.section__container {
 			gap: 45px;
 		}
 	}
